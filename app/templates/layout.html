@@ -1,1 +1,47 @@
-
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width">
+   {% if title %}
+    <title>{{title}}</title>
+   {% else %}
+    <tile>Meme_Site</tile>
+   {% endif %}
+   <link href="static/main.css" rel="stylesheet" type="text/css" />
+   <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+   <script src="script.js"></script>
+ </body>
+   <div>
+     <h1 style="font-size:200%; text-align:center;">Login</h1>
+     <form action="/action_page.php">
+       <div2 class="form-group">
+         <label for="Username" style="color:blue">Username:</label>
+         <input type="text" id="Username" style="border-color:lightblue; border-radius:4px">
+       </div2>
+       <div3 class="form-group">
+         <label for="pwd" style="color:blue">Password:</label>
+         <input type="password" id="pwd" style="border-color:lightblue; border-radius:4px">
+       </div3>
+       <div4 class="checkbox" style="color:lightgrey">
+          <label><input type="checkbox"> Remember me</label>
+       </div4>
+       <p>
+         <button type="button" class="btn btn-success btn-sm">Login</button>
+       </p>
+     </form>
+     <button type="button">Guest</button>
+     <p></p>
+     <p>
+       <button type="button" class="btn btn-warning btn-md center-block">Create Account</button>
+     </p>
+   </div>
+ </body>
+</html>
