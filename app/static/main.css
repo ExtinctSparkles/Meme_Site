@@ -18,3 +18,20 @@ div {
   border-radius: 7px;
   background-color: white;
 }
+#sidebarnav {
+  width: 200px;
+  height: 500px;
+  border: 15px solid darkgray;
+  padding: 5px;
+  margin-left: auto;
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+  background-color: white;
+  margin-top: 10%;
+}
+#listpushedtoleft {
+  padding-left: 0;
+}
+#listelement1 { /*sidebarnav list*/
+  padding-top: 5px;
+}
