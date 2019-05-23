@@ -1,0 +1,20 @@
+:root {
+  --welcomboxwidth: 240px;
+  --welcomboxheight: 380px;
+}
+input {
+  width: 90%; 
+}
+body {
+  background-color: lightcyan;
+}
+div {
+  width: var(--welcomboxwidth);
+  height: var(--welcomboxheight);
+  border: 15px solid darkgray;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 7px;
+  background-color: white;
+}
