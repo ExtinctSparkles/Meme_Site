@@ -1,5 +1,31 @@
 {% extends "layout.html" %}
 {% block content%}
-  <h1>{{form.username.label}}</h1>
-  <h1>{{form.username}}</h1>
+  <h1 style="font-size:200%; text-align:center;">Register Today</h1>
+     <form action="/action_page.php">
+       <div2 class="form-group">
+         {{form.username.label}}</br>
+         {{form.username}}</br>
+         {% for error in form.username.errors %}
+          <span>{{error}}</span>
+        {% endfor %}
+       </div2>
+       <div3 class="form-group">
+         {{form.password.label}}</br>
+         {{form.password}}</br>
+         {% for error in form.password.errors %}
+          <span>{{error}}</span>
+        {% endfor %}
+       </div3>
+       <div4 class="form-group">
+         {{form.check_password.label}}</br>
+         {{form.check_password}}
+         {% for error in form.check_password.errors %}
+          <span>{{error}}</span>
+        {% endfor %}
+       </div4>  
+    
+       <p>
+         {{form.submit(class="btn btn-warning btn-md center-block")}}
+       </p>
+     </form>
 {% endblock %}
