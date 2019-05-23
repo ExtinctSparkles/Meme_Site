@@ -35,3 +35,6 @@ div {
 #listelement1 { /*sidebarnav list*/
   padding-top: 5px;
 }
+#center {
+  text-align: center;
+}
