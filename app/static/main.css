@@ -8,7 +8,8 @@ input {
 body {
   background-color: lightcyan;
 }
-div {
+
+.content-section {
   width: var(--welcomboxwidth);
   height: var(--welcomboxheight);
   border: 15px solid darkgray;
@@ -18,6 +19,7 @@ div {
   border-radius: 7px;
   background-color: white;
 }
+
 #sidebarnav {
   width: 200px;
   height: 500px;
@@ -28,6 +30,11 @@ div {
   border-top-left-radius: 7px;
   background-color: white;
   margin-top: 10%;
+  position: left;
+  float: right;
+}
+
+
 }
 #listpushedtoleft {
   padding-left: 0;
@@ -38,3 +45,4 @@ div {
 #center {
   text-align: center;
 }
+
