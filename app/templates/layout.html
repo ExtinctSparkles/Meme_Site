@@ -21,8 +21,8 @@
  </body>
  <body>
         <aside style='float: right'>
-            <div id="sidebarnav">
-             <h1 style="font-size:200%">Navigation</h1>
+            <div style="width: 200px; height: 450px; border: 15px solid darkgray; padding: 5px; margin-left: auto; border-bottom-left-radius: 7px; border-top-left-radius: 7px; background-color: white; margin-top: 10%">
+             <h1 style="font-size:200%; text-align: center">Navigation</h1>
              <div2 class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pages
                 <span class="caret"></span></button>
@@ -38,15 +38,17 @@
                   <label for="pwd">Search User:</label>
                   <input type="text" class="form-control" id="pwd" placeholder="username" name="pwd">
                 </div2>
-                <button type="submit" class="btn btn-info btn-xs">Search</button>
+                <button style="margin-top: 3px" type="submit" class="btn btn-info btn-xs">Search</button> <!--button id is searchbuttonlocation-->
               </form>
-              <ul id="listpushedtoleft" style="list-style-type:none">
-                <li id="listelement1"><button type="button" class="btn btn-success">admins</button></li>
-                <li id="listelement1"><button type="button" class="btn btn-success">rules</button></li>
-                <li id="listelement1"><button type="button" class="btn btn-success">suggestions</button></li>
-                <li id="listelement1"><button type="button" class="btn btn-success">apply for mod</button></li>
+              <ul style="list-style-type:none; padding-left: 0"> <!--listpushedtoleft id--> <!--all list elements had listelement1 id-->
+                <li style="padding-top: 8px; text-align: center"><button type="button" class="btn btn-danger">Click to View Admins</button></li>
+                <li style="padding-top: 8px; text-align: center"><button type="button" class="btn btn-danger">Click to View Rules</button></li>
+                <li style="padding-top: 8px; text-align: center"><button type="button" class="btn btn-primary">Submit a Suggestion</button></li>
+                <li style="padding-top: 8px; text-align: center"><button type="button" class="btn btn-warning">Apply to be a Mod</button></li>
               </ul>
-              <button type="button" class="btn btn-success">Settings</button>
+              <div style="text-align: center; margin-top: 10px"> <!-- id should be settingsbuttonlocation -->
+                <button type="button" class="btn btn-dark btn-md">Settings Menu</button>
+              </div>
             </div>
         </aside>
 
