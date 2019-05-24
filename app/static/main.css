@@ -33,8 +33,9 @@ body {
   position: left;
   float: right;
 }
-
-
+#settingsbuttonloation {
+  text-align: center;
+  margin-top: 10px;
 }
 #listpushedtoleft {
   padding-left: 0;
@@ -45,4 +46,6 @@ body {
 #center {
   text-align: center;
 }
-
+#searchbuttonlocation {
+  margin-top: 3px;
+}
