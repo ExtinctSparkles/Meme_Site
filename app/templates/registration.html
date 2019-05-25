@@ -2,7 +2,8 @@
 {% block content%}
     <div class="text-center">
       <h1>Register Today</h1>
-         <form action="" method="POST">
+         <form method="POST", action="">
+             {{form.hidden_tag()}}
            <fieldset class="form-group">
                <div2 class="form-group">
                  {{form.username.label}}</br>
@@ -27,11 +28,10 @@
                   <span>{{error}}</span>
                 {% endfor %}
                </div4>
-
-               <p>
-                 {{form.submit(class="btn btn-warning btn-md center-block")}}
-               </p>
            </fieldset>
+             <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
          </form>
     </div>
 {% endblock content %}
