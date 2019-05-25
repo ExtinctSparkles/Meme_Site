@@ -8,59 +8,105 @@
    {% else %}
     <tile>Meme_Site</tile>
    {% endif %}
-   <link href="static/main.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link href="static/main.css" rel="stylesheet" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+    <link href="static/custom.css" rel="stylesheet" type="text/css" />
+
     <link rel="icon" href="https://www.dictionary.com/e/wp-content/uploads/2018/03/Upside-Down_Face_Emoji.png"> 
     <!--image for browser tab-->
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
  </head>
  <body>
-   <script src="script.js"></script>
- </body>
- <body>
-        <aside style='float: right'>
-            <div style="width: 200px; height: 450px; border: 15px solid darkgray; padding: 5px; margin-left: auto; border-bottom-left-radius: 7px; border-top-left-radius: 7px; background-color: white; margin-top: 70%">
-             <h1 style="font-size:200%; text-align: center">Navigation</h1>
-             <div2 class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pages
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Top Charts</a></li>
-                  <li><a href="#">Most Recent</a></li>
-                  <li><a href="#">tobedetermined</a></li>
+    <div class='row'>
+        {% if current_user %}
+            <nav class='navbar bg-secondary col-md-2'>
+                <ul class='navbar-nav'>
+                    <li class="nav-item"><h1 class='navbar-brand'>User</h1></li>
+                    <li class="nav-item">
+                        <img src="static/profile_images/test_pic.jpg">
+                    </li>
+                    <li class='nav-item'>
+                        <h3>Stars: 100</h3>
+                    </li><br>
+                    <li class='nav-item'>
+                        <h3>Gold: 100</h3>
+                    </li><br>
+                     <li class='nav-item'>
+                        <h3>Likes: 100</h3>
+                    </li><br>
+                     <li class='nav-item'>
+                        <h3>Posts: 100</h3>
+                    </li><br>
+                     <li class='nav-item'>
+                        <button type='button' class='btn btn-primary'>View Profile</button>
+                    </li><br>
+                    <li class='nav-item'>
+                        <button type='button' class='btn btn-primary'>Logout</button>
+                    </li>
                 </ul>
-              <p></p>
-              </div2>
-              <form action=""> <!--put somthing here -->
-                <div2 class="form-group">
-                  <label for="pwd">Search User:</label>
-                  <input type="text" class="form-control" id="pwd" placeholder="username" name="pwd">
-                </div2>
-                <button style="margin-top: 3px" type="submit" class="btn btn-info btn-xs">Search</button> <!--button id is searchbuttonlocation-->
-              </form>
-              <ul style="list-style-type:none; padding-left: 0"> <!--listpushedtoleft id--> <!--all list elements had listelement1 id-->
-                <li style="padding-top: 8px; text-align: center"><button type="button" class="btn btn-danger">Click to View Admins</button></li>
-                <li style="padding-top: 8px; text-align: center"><button type="button" class="btn btn-danger">Click to View Rules</button></li>
-                <li style="padding-top: 8px; text-align: center"><button type="button" class="btn btn-primary">Submit a Suggestion</button></li>
-                <li style="padding-top: 8px; text-align: center"><button type="button" class="btn btn-warning">Apply to be a Mod</button></li>
-              </ul>
-              <div style="text-align: center; margin-top: 10px"> <!-- id should be settingsbuttonlocation -->
-                <button type="button" class="btn btn-dark btn-md">Settings Menu</button>
-              </div>
-            </div>
-        </aside>
+            </nav>
+        {% else %}
+            <nav class="navbar bg-secondary col-md-2">
+                <ul class='navbar-nav'>
+                    <li class="nav-item">
+                        <button type='button' class='btn btn-primary'>Log In</button>
+                    </li><br>
+                     <li class="nav-item">
+                        <button type='button' class='btn btn-primary' onclick="window.location.href = '{{url_for('registration')}}'">Register</button>
+                    </li>
+                </ul>
+            </nav>
+        {% endif %}
+        <div class='container col-md-8'>
+            {% block content %}{% endblock %}
+        </div>
+            <nav class='navbar bg-secondary col-md-2'>
+                <ul class='navbar-nav'>
+                    <li class="nav-item"><h1 class='navbar-brand'>Navigation</h1></li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button type='button' class='btn btn-primary dropdown-toggle' data-toggle="dropdown">Pages</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{url_for('home')}}">Top charts</a>
+                                <a class="dropdown-item" href='#'>Most Recents</a>
+                            </div>
+                        </div>
+                    </li><br>
+                    <li class='nav-item'>
+                        <form class="form-inline" action="/action_page.php">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </form>
+                    </li><br>
+                    <li class='nav-item'>
+                        <button type='button' class='btn btn-primary'>View Admins</button>
+                    </li><br>
+                     <li class='nav-item'>
+                        <button type='button' class='btn btn-primary'>View Rules</button>
+                    </li><br>
+                     <li class='nav-item'>
+                        <button type='button' class='btn btn-primary'>Suggestions</button>
+                    </li><br>
+                     <li class='nav-item'>
+                        <button type='button' class='btn btn-primary'>Apply for admin</button>
+                    </li><br>
+                     <li class='nav-item'>
+                        <button type='button' class='btn btn-primary'>Settings</button>
+                    </li>
+                </ul>
+            </nav>
+     </div>
 
-    <main role='main' class='container'>
-
-          {% block content %}
-          {% endblock %}
-
-    </main>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
  </body>
 </html>
