@@ -1,4 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
   <h1 class="text-center">Welcome </h1>
+  {% for post in post %}
+    <div class="container text-center bg-primary">
+        <h1>Post: {{post.id}}</h1>
+        {% if post.image %}
+          <img src="{{post.image}}">
+        {% endif %}
+        <p>{{post.body}}</p>
+        <p>Likes: {{post.likes}}</p>
+    </div><br>
+  {% endfor %}
 {% endblock %}

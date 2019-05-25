@@ -16,3 +16,13 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return "User({}, {}, {})".format(self.id, self.username, self.image)
 
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    image = db.Column(db.String(120))
+    body = db.Column(db.String(120))
+    likes = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return "Post({}, {}, {})".format(self.image, self.body, self.likes)
+

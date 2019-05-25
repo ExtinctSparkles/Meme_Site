@@ -1,14 +1,15 @@
 from app import app, db, bcrypt
 from flask import render_template, url_for, flash, redirect, request
 from app.forms import RegistrationForm, LoginForm
-from app.models import User
+from app.models import User, Post
 from flask_login import current_user, login_user, login_required, logout_user
 
 
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html', title='Ryan > Brennan')
+    post = Post.query.all()
+    return render_template('home.html', title='Ryan > Brennan', post=post)
 
 
 @app.route('/registration', methods=['POST', 'GET'])
