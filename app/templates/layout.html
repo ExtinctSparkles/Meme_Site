@@ -52,7 +52,7 @@
                         <button type='button' class='btn btn-primary'>View Profile</button>
                     </li><br>
                     <li class="nav-item">
-                        <button type='button' class='btn btn-primary'>Create Post</button>
+                        <button type='button' class='btn btn-primary' onclick="window.location.href = '{{url_for('create_post')}}'">Create Post</button>
                     </li>
                     <li class='nav-item'>
                         <button type='button' class='btn btn-primary' onclick="window.location.href = '{{url_for('logout')}}'">Logout</button>

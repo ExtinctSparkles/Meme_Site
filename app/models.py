@@ -21,7 +21,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image = db.Column(db.String(120))
     body = db.Column(db.String(120))
-    likes = db.Column(db.Integer, nullable=False)
+    likes = db.Column(db.Integer, nullable=False, default=0)
 
     def __repr__(self):
         return "Post({}, {}, {})".format(self.image, self.body, self.likes)
