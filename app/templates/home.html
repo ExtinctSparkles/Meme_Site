@@ -5,7 +5,7 @@
     <div class="container text-center bg-primary">
         <h1>Post: {{post.id}}</h1>
         {% if post.image %}
-          <img src="{{url_for('static', filename='profile_images/' + post.image)}}">
+          <img src="static/post_pics/{{post.image}}">
         {% endif %}
         <p>{{post.body}}</p>
         <p>Likes: {{post.likes}}</p>

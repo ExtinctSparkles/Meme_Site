@@ -53,30 +53,33 @@ def logout():
     return redirect(url_for('home'))
 
 
-def save_picture(picture_file):
-    rand_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(picture_file.filename)
-    picture_fn = rand_hex + f_ext
-    picture_path = os.path.join(app.root_path, 'static/profile_images', picture_fn)
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/post_pics', picture_fn)
     output_size = (125, 125)
-    i = Image.open(output_size)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+
     i.save(picture_path)
+
     return picture_fn
 
 
 @app.route('/create_post', methods=['POST', 'GET'])
 @login_required
 def create_post():
-    global post
     form = PostForm()
     if form.validate_on_submit():
         if form.image.data:
-            picture = save_picture(form.image.data)
-            post = Post(body=form.body.data, image=picture)
+            post = Post(body=form.body.data, image=save_picture(form.image.data))
+            db.session.add(post)
+            db.session.commit()
         else:
             post = Post(body=form.body.data)
-        db.session.add(post)
-        db.session.commit()
+            db.session.add(post)
+            db.session.commit()
         flash('Post created')
         return redirect(url_for('home'))
     return render_template('post.html', title='Post', form=form)
