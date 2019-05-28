@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
-  <h1 class="text-center"></br></br></br></h1>
+  <div style="position: fixed; height: 150px; width: 100%; border: 10px solid darkgray; right: 0%; background-color: lightblue">
+    <center><h1 style="font-size: 100px">welcome</h1></center>
+  </div>
   {% for post in post %}
     <div class="container text-center bg-primary">
         <h1>Post: {{post.id}}</h1>
@@ -11,4 +13,4 @@
         <p>Likes: {{post.likes}}</p>
     </div><br>
   {% endfor %}
-{% endblock %}
+{% endblock content %}
