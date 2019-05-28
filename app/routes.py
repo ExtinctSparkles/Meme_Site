@@ -4,7 +4,7 @@ from app.forms import RegistrationForm, LoginForm, PostForm
 from app.models import User, Post
 from flask_login import current_user, login_user, login_required, logout_user
 import os
-import secrets #change to secret if running in repl, also change it in the function save_picture
+import secrets 
 from PIL import Image
 
 
