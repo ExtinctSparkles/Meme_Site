@@ -10,9 +10,26 @@
 }
 
 .btn {
-    margin-left: 5px; margin-top: 10px;
+    margin-left: 5px; 
+    margin-top: 10px;
 }
 
 .navbar-brand {
     font-size: 30px
+}
+
+.home-style {
+  position: fixed;
+  height: 150px;
+  width: 100%;
+  border: 10px solid darkgray;
+  right: 0%;
+  background-color: lightblue
+}
+
+#post {
+  padding-top: 150px;
+  border: 10px solid black;
+  background-color: gray;
+  border-radius: 7px;
 }
