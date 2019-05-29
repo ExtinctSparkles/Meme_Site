@@ -34,10 +34,10 @@
                 <ul class='navbar-nav'>
                     <li class="nav-item">
                       <div class="profilepic">
-                        <img src="static/profile_pics/test_pic.jpg">
+                        <img src="static/profile_pics/test_pic.jpg" alt="if you can read this you might want to tell a mod">
                       </div>
                     </li>
-                    <li class="nav-item"><center><h1 class='navbar-brand'>{{current_user.username}}</h1></center></li>
+                    <li class="nav-item"><center><h1 class='navbar-brand' style="color: white; margin: 0px; padding: 0px">{{current_user.username}}</h1></center></li>
                     <li class='nav-item'>
                         <h3>Stars: 100</h3>
                     </li>
@@ -50,14 +50,14 @@
                      <li class='nav-item'>
                         <h3>Posts: 100</h3>
                     </li>
-                     <li class='nav-item'>
+                     <li class='nav-item' style="border-top: 0px">
                         <center><button type='button' class='btn btn-primary'>View Profile</button></center>
                     </li>
                     <li class="nav-item">
-                        <center><button type='button' class='btn btn-success' onclick="window.location.href = '{{url_for('create_post')}}'">Create Post</button></center>
+                        <center><button type='button' class='btn btn-success btn-md' onclick="window.location.href = '{{url_for('create_post')}}'">Create Post</button></center>
                     </li>
                     <li class='nav-item'>
-                        <center><button type=button' class='btn btn-primary danger' onclick="window.location.href = '{{url_for('logout')}}'">Logout</button></center>
+                        <center><button type='button' class='btn btn-danger btn-sm' onclick="window.location.href = '{{url_for('logout')}}'">Logout</button></center>
                     </li>
                 </ul>
             </nav>
@@ -99,8 +99,8 @@
                         <center><button type='button' class='btn btn-primary' style="margin-top: 8px">View Admins</button></center>
                     </li>
                      <li class='nav-item'>
-                        <center><button type='button' class='btn btn-primary' style="margin-top: 8px">View Rules</button onclick="window.location.href = '{{url_for('rules')}}"></center>
-                    </li>
+                        <center><button type='button' class='btn btn-primary' data-toggle="modal" data-target="#myModal" style="margin-top: 8px">View Rules</button></center>
+                     </li>
                      <li class='nav-item'>
                         <center><button type='button' class='btn btn-primary' style="margin-top: 8px">Suggestions</button></center>
                     </li>
@@ -113,6 +113,32 @@
                 </ul>
             </nav>
      </div>
-
  </body>
+ <div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Rules:</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <ol>
+          <li>Enjoy no adds, and feel free to not donate!</li>
+          <li>some rule you should follow</li>
+          <li>hi my name is ryan</li>
+          <li>Brennan has done most of the work here</li>
+          <li>I cant wait until this site is functional</li>
+          <li>some other rule</li>
+          <li>this is the 7th rule you should follow</li>
+          <li>come up with another rule here</li>
+          <li>remember santa is always watching</li>
+          <li>have a bowl of cerial</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </html>
