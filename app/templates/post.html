@@ -27,33 +27,4 @@
             </div>
          </form>
     </div>
-{% endblock content %}{% extends "layout.html" %}
-{% block content %}
-    <div class="text-center">
-      <h1>Create Post</h1>
-         <form method="POST", action="" enctype="multipart/form-data">
-             {{form.hidden_tag()}}
-           <fieldset class="form-group">
-               <div2 class="form-group">
-                 {{form.body.label}}</br>
-                 {{form.body}}</br>
-                 {% for error in form.body.errors %}
-                  <span>{{error}}</span>
-                {% endfor %}
-               </div2>
-               <div3 class="form-group">
-                 {{form.image.label}}</br>
-                 {{form.image}}</br>
-                   <div class="invalid-feedback">
-                       {% for error in form.image.errors %}
-                            <span>{{error}}</span>
-                        {% endfor %}
-                   </div>
-               </div3>
-           </fieldset>
-             <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
-            </div>
-         </form>
-    </div>
 {% endblock content %}
