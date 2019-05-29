@@ -4,7 +4,7 @@ from app.forms import RegistrationForm, LoginForm, PostForm
 from app.models import User, Post
 from flask_login import current_user, login_user, login_required, logout_user
 import os
-import secrets 
+#import secrets 
 from PIL import Image
 
 
@@ -26,7 +26,7 @@ def registration():
         db.session.add(user)
         db.session.commit()
         flash("Your account has been created", "success")
-        return redirect(url_for('home'))
+        return redirect(url_for('login'))
     return render_template('registration.html', title='Register', form=form)
 
 
@@ -83,7 +83,3 @@ def create_post():
         flash('Post created')
         return redirect(url_for('home'))
     return render_template('post.html', title='Post', form=form)
-
-@app.route('/rules')
-def rules():
-    return render_template('rules.html')
