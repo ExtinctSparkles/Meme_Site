@@ -9,15 +9,29 @@
   <br>
   <br>
   <br>
-  <br>
   {% for post in post %}
-    <div id="post" class="container text-center">
-        <h1>Post: {{post.id}}</h1>
-        {% if post.image %}
-          <img src="static/post_pics/{{post.image}}">
-        {% endif %}
-        <p>{{post.body}}</p>
-        <p>Likes: {{post.likes}}</p>
-    </div><br>
+    {% if post.image %}
+    <div id="postwimage" class="container text-center">
+      <h1 class="postidnumber">Post: {{post.id}}</h1>
+        <div class="postimagebox">
+          <img src="static/post_pics/{{post.image}}" style="float:left;width:100%;height:100%;object-fit:cover">
+        </div>
+        <div>
+          <p>{{post.body}}</p>
+        </div>
+        <div class="postinteractions">
+          <p>Likes: {{post.likes}}</p>
+        </div>
+    </div>
+    {% else %}
+    <div id="postnoimage" class="container text-center">
+      <h1 class="postidnumber">Post: {{post.id}}</h1>
+        <div>
+          <p>{{post.body}}</p>
+          <p>Likes: {{post.likes}}</p>
+        </div>
+    </div>
+    {% endif %}
+    <br>
   {% endfor %}
 {% endblock content %}
