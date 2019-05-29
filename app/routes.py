@@ -84,3 +84,6 @@ def create_post():
         return redirect(url_for('home'))
     return render_template('post.html', title='Post', form=form)
 
+@app.route('/rules')
+def rules():
+    return render_template('rules.html')

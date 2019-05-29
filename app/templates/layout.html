@@ -54,10 +54,10 @@
                         <center><button style="margin-left: 5px; margin-top: 10px" type='button' class='btn btn-primary'>View Profile</button></center>
                     </li>
                     <li class="nav-item">
-                        <center><button style="margin-left: 5px; margin-top: 5px" type='button' class='btn btn-success"window.location.href = '{{url_for('create_post')}}'">Create Post</button></center>
+                        <center><button style="margin-left: 5px; margin-top: 5px" type='button' class='btn btn-success' onclick="window.location.href = '{{url_for('create_post')}}'">Create Post</button></center>
                     </li>
                     <li class='nav-item'>
-                        <center><button style="margin-left: 5px; margin-top: 5px" type=button' class='btn btn-primary' odanger"window.location.href = '{{url_for('logout')}}'">Logout</button></center>
+                        <center><button style="margin-left: 5px; margin-top: 5px" type=button' class='btn btn-primary danger' onclick="window.location.href = '{{url_for('logout')}}'">Logout</button></center>
                     </li>
                 </ul>
             </nav>
