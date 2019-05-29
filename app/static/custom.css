@@ -27,14 +27,24 @@
   background-color: lightblue
 }
 
-#post {
-  padding-top: 150px;
-  border: 10px solid black;
+#postwimage {
+  border: 12px solid black;
   background-color: gray;
   border-radius: 7px;
   right: 20%;
   width: 700px;
-  height: 400px;
+  height: 525px;
+  padding-left: 0px;
+}
+
+#postnoimage {
+  border: 12px solid black;
+  background-color: gray;
+  border-radius: 7px;
+  right: 20%;
+  width: 700px;
+  padding-bottom: 5px;
+  padding-left: 0px;
 }
 
 .rulebox {
@@ -44,4 +54,32 @@
   background-color: grey;
   top: 30%;
   right: 30%;
+}
+
+.postimagebox {
+  width: 650px;
+  height: 350px;
+  border-radius: 5px;
+  border: 8px solid darkgray;
+  margin-left: 12px;
+  margin-top: 0px;
+}
+
+.postidnumber {
+  text-align: left;
+  font-size: 20px;
+  color: white;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.postinteractions {
+  width: 676px;
+  height: 25px;
+  border-top: 10px solid black;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  bottom: 0px;
+  left: 0px;
 }
