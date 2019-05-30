@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
   <div class="home-style">
-    <center><h1 style="font-size: 100px">Welcome</h1></center>
+    <center><h1 style="font-size: 60px">&#127942 Coach Taylor is the Best Teacher Ever &#127942</h1></center> <!--size was 100px when it said welcome-->
   </div>
+  <br>
+  <br>
   <br>
   <br>
   <br>
@@ -20,7 +22,7 @@
           <p><strong>Body:</strong> {{post.body}}</p>
         </div>
         <div class="postinteractions">
-          <h1 id="usrnameanddateofpost">User: (username) <span class="tab"> Date: (dateofpost)</h1>
+          <h1 id="usrnameanddateofpost">User: anonymous <span class="tab"> Date: (dateofpost)</h1>
           <div class="postinteractables">
             <ul id="menu">
               <li style="float:left"><h1 class="poststars">&#9734 &#9734 &#9733 &#9733 &#9733</h1></li>
@@ -34,11 +36,11 @@
     {% else %}
     <div id="postnoimage" class="container">
       <h1 class="postidnumber">Post: {{post.id}}</h1>
-        <div class="postbody">
+        <div class="textpostbody">
           <p style="color: black">{{post.body}}</p>
         </div>
         <div class="postinteractions">
-          <h1 id="usrnameanddateofpost">User: (username) <span class="tab"> Date: (dateofpost)</h1>
+          <h1 id="usrnameanddateofpost">User: anonymous <span class="tab"> Date: {{post.date}}</h1>
           <div class="postinteractables">
             <ul id="menu">
               <li style="float:left"><h1 class="poststars">&#9734 &#9734 &#9733 &#9733 &#9733</h1></li>
