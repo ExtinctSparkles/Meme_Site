@@ -14,10 +14,10 @@
     <div id="postwimage" class="container">
       <h1 class="postidnumber">Post: {{post.id}}</h1>
         <div class="postimagebox">
-          <img src="static/post_pics/{{post.image}}" style="float:left;width:100%;height:100%;object-fit:cover" alt="If you can read this you might be thinking why didnt this image display and im here to tell you it sounds like a you problem but if you want to do somthing about it then report the issue and we might take a look at it - from: RyanL">
+          <img class="postimage" src="static/post_pics/{{post.image}}" alt="If you can read this you might be thinking why didnt this image display and im here to tell you it sounds like a you problem but if you want to do somthing about it then report the issue and we might take a look at it - from: RyanL">
         </div>
-        <div>
-          <p>{{post.body}}</p>
+        <div class="postbody">
+          <p><strong>Body:</strong> {{post.body}}</p>
         </div>
         <div class="postinteractions">
           <h1 id="usrnameanddateofpost">User: (username) <span class="tab"> Date: (dateofpost)</h1>
@@ -32,11 +32,21 @@
         </div>
     </div>
     {% else %}
-    <div id="postnoimage" class="container text-center">
+    <div id="postnoimage" class="container">
       <h1 class="postidnumber">Post: {{post.id}}</h1>
-        <div>
-          <p>{{post.body}}</p>
-          <p>Likes: {{post.likes}}</p>
+        <div class="postbody">
+          <p style="color: black">{{post.body}}</p>
+        </div>
+        <div class="postinteractions">
+          <h1 id="usrnameanddateofpost">User: (username) <span class="tab"> Date: (dateofpost)</h1>
+          <div class="postinteractables">
+            <ul id="menu">
+              <li style="float:left"><h1 class="poststars">&#9734 &#9734 &#9733 &#9733 &#9733</h1></li>
+              <li style="float:left"><button id="ratebutton" type='button' class='btn btn-warning btn-sm'>Rate</button></li>
+              <li style="float:left"><h1 class="postlikes">Likes: {{post.likes}}</h1></li>
+              <li style="float:left"><button id="commentsbutton" type='button' class='btn btn-primary btn-sm'>Comments</button></li>
+            </ul>
+          </div>
         </div>
     </div>
     {% endif %}
