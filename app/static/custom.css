@@ -11,11 +11,20 @@
     top: 20%;
 }
 .sidebarnav_2{
-    width: 200px; height: 550px; border: 15px solid darkgray; padding: 5px; border-bottom-left-radius: 7px; border-top-left-radius: 7px; background-color: white; position: fixed; top: 20%; right: 0%
+    width: 200px;
+    height: 550px;
+    border: 15px solid darkgray;
+    padding: 0px;
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+    background-color: white;
+    position: fixed;
+    top: 20%;
+    right: 0%
 }
 
 .navbutton {
-  margin-right: 55px;
+  margin-right: 120px; /*was 55px*/
   margin-top: 8px;
 }
 
@@ -83,7 +92,7 @@
 .postidnumber {
   text-align: left;
   font-size: 20px;
-  color: white;
+  color: red;
   margin-top: 3px;
   margin-bottom: 5px;
   margin-left: 5px;
