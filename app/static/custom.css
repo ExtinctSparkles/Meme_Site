@@ -1,5 +1,14 @@
 .sidebarnav{
-    width: 200px; height: 550px; border: 15px solid darkgray; padding: 5px; position: fixed; left: 0%; border-bottom-right-radius: 7px; border-top-right-radius: 7px; background-color: white; top: 20%;
+    width: 200px;
+    height: 550px;
+    border: 15px solid darkgray;
+    padding: 5px;
+    position: fixed;
+    left: 0%;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
+    background-color: white;
+    top: 20%;
 }
 .sidebarnav_2{
     width: 200px; height: 550px; border: 15px solid darkgray; padding: 5px; border-bottom-left-radius: 7px; border-top-left-radius: 7px; background-color: white; position: fixed; top: 20%; right: 0%
@@ -82,4 +91,50 @@
   border-bottom-right-radius: 7px;
   bottom: 0px;
   left: 0px;
+}
+
+#usrnameanddateofpost {
+  font-size: 20px;
+  text-align: left;
+  margin-left: 3px;
+  margin-bottom: 0px;
+}
+
+.tab {
+  display:inline-block; 
+  margin-left: 40px;
+}
+
+.poststars {
+  color: yellow;
+  font-size: 30px;
+  margin: 0;
+  margin-left: 0;
+}
+
+#ratebutton {
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+ul#menu li {
+  display:inline;
+  list-style: none;
+  padding-left: 0;
+}
+
+.postinteractables {
+  border: 1px solid rgba(69, 69, 69, 0);
+  padding: 0px;
+  height: 35px;
+}
+
+.postlikes {
+  font-size:30px;
+  margin-left: 50px;
+}
+
+#commentsbutton {
+  margin-left: 75px;
+  margin-top: 2px;
 }
