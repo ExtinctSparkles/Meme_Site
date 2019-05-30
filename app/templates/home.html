@@ -11,16 +11,24 @@
   <br>
   {% for post in post %}
     {% if post.image %}
-    <div id="postwimage" class="container text-center">
+    <div id="postwimage" class="container">
       <h1 class="postidnumber">Post: {{post.id}}</h1>
         <div class="postimagebox">
-          <img src="static/post_pics/{{post.image}}" style="float:left;width:100%;height:100%;object-fit:cover">
+          <img src="static/post_pics/{{post.image}}" style="float:left;width:100%;height:100%;object-fit:cover" alt="If you can read this you might be thinking why didnt this image display and im here to tell you it sounds like a you problem but if you want to do somthing about it then report the issue and we might take a look at it - from: RyanL">
         </div>
         <div>
           <p>{{post.body}}</p>
         </div>
         <div class="postinteractions">
-          <p>Likes: {{post.likes}}</p>
+          <h1 id="usrnameanddateofpost">User: (username) <span class="tab"> Date: (dateofpost)</h1>
+          <div class="postinteractables">
+            <ul id="menu">
+              <li style="float:left"><h1 class="poststars">&#9734 &#9734 &#9733 &#9733 &#9733</h1></li>
+              <li style="float:left"><button id="ratebutton" type='button' class='btn btn-warning btn-sm'>Rate</button></li>
+              <li style="float:left"><h1 class="postlikes">Likes: {{post.likes}}</h1></li>
+              <li style="float:left"><button id="commentsbutton" type='button' class='btn btn-primary btn-sm'>Comments</button></li>
+            </ul>
+          </div>
         </div>
     </div>
     {% else %}
