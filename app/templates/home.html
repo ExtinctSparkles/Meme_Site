@@ -22,7 +22,7 @@
           <p><strong>Body:</strong> {{post.body}}</p>
         </div>
         <div class="postinteractions">
-          <h1 id="usrnameanddateofpost">User: anonymous <span class="tab"> Date: (dateofpost)</h1>
+          <h1 id="usrnameanddateofpost">User: anonymous <span class="tab"> Date: {{post.date_posted.strftime('%m-%d-%y')}}</h1>
           <div class="postinteractables">
             <ul id="menu">
               <li style="float:left"><h1 class="poststars">&#9734 &#9734 &#9733 &#9733 &#9733</h1></li>

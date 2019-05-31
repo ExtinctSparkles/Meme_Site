@@ -1,11 +1,12 @@
 from app import app, db, bcrypt
 from flask import render_template, url_for, flash, redirect, request
-from app.forms import RegistrationForm, LoginForm, PostForm
+from app.forms import RegistrationForm, LoginForm, PostForm, CommentForm
 from app.models import User, Post
 from flask_login import current_user, login_user, login_required, logout_user
 import os
-#import secrets 
+import secrets
 from PIL import Image
+from datetime import datetime
 
 
 @app.route('/')
@@ -73,11 +74,11 @@ def create_post():
     form = PostForm()
     if form.validate_on_submit():
         if form.image.data:
-            post = Post(body=form.body.data, image=save_picture(form.image.data))
+            post = Post(body=form.body.data, image=save_picture(form.image.data), date_posted=datetime.now())
             db.session.add(post)
             db.session.commit()
         else:
-            post = Post(body=form.body.data)
+            post = Post(body=form.body.data, date_posted=datetime.now())
             db.session.add(post)
             db.session.commit()
         flash('Post created')
