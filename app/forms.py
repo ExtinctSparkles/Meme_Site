@@ -34,6 +34,7 @@ class PostForm(FlaskForm):
     image = FileField('Image File', validators=[FileAllowed(['jpg', 'png', 'gif'])])
     submit = SubmitField('Create Post')
 
+
 class CommentForm(FlaskForm):
     body = StringField('Comment', validators=[Length(min=1, max=120), DataRequired])
     submit = SubmitField('Post Comment')

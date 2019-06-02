@@ -74,11 +74,11 @@ def create_post():
     form = PostForm()
     if form.validate_on_submit():
         if form.image.data:
-            post = Post(body=form.body.data, image=save_picture(form.image.data), date_posted=datetime.now())
+            post = Post(body=form.body.data, image=save_picture(form.image.data), date_posted=datetime.now(), author=current_user)
             db.session.add(post)
             db.session.commit()
         else:
-            post = Post(body=form.body.data, date_posted=datetime.now())
+            post = Post(body=form.body.data, date_posted=datetime.now(), author=current_user)
             db.session.add(post)
             db.session.commit()
         flash('Post created')
