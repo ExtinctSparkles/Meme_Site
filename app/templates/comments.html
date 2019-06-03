@@ -1,6 +1,37 @@
 {% extends "layout.html" %}
 {% block content %}
-  {% for comment in comments %}
-    <p> {{comment.body}}</p>
-  {% endfor %}
-{% endblock content %}
+  <div id="postwimage" class="container">
+      <h1 class="postidnumber">Post: </h1>
+      <div class="postimagebox">
+        <img class="postimage" src="static/post_pics/{{post.image}}" alt="If you can read this you might be thinking why didnt this image display and im here to tell you it sounds like a you problem but if you want to do somthing about it then report the issue and we might take a look at it - from: RyanL">
+      </div>
+      <div class="postbody">
+        <p><strong>Body: {{post.body}}</strong></p>
+      </div>
+  </div>
+  <div class="commentsbackground">
+    <h3>Comments:</h3>
+    <div class="commentpostbox">
+      <h4>Create Comment:</h4>
+      <form method="POST", action="">
+             {{form.hidden_tag()}}
+           <fieldset class="form-group">
+               <div2 class="form-group">
+                 {{form.body}}
+                 {% for error in form.body.errors %}
+                  <span>{{error}}</span>
+                {% endfor %}
+               </div2>
+           </fieldset>
+           <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+         </form>
+    </div>
+    {% for comment in comments %}
+    <div class="commentbox">
+      <p>{{comment.body}}</p>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
