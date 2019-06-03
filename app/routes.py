@@ -1,10 +1,10 @@
 from app import app, db, bcrypt
 from flask import render_template, url_for, flash, redirect, request
 from app.forms import RegistrationForm, LoginForm, PostForm, CommentForm
-from app.models import User, Post
+from app.models import User, Post, Comments
 from flask_login import current_user, login_user, login_required, logout_user
 import os
-import secrets
+#import secrets
 from PIL import Image
 from datetime import datetime
 
@@ -13,8 +13,19 @@ from datetime import datetime
 @app.route('/home')
 def home():
     post = Post.query.all()
-    return render_template('home.html', title='Ryan > Brennan', post=post)
+    form = CommentForm()
+    return render_template('home.html', title='Ryan > Brennan', post=post, form=form)
 
+@app.route('/home/<int:post_id>/add_comments', methods=['GET', 'POST'])
+def comment(post_id):
+  form = CommentForm()
+  post = Post.query.filter_by(id=post_id)
+  if form.validate_on_submit():
+    comment = Comments(body=form.body.data, post_id=post_id)
+    db.session.add(comment)
+    db.session.commit()
+  return render_template("comments.html", form=form, post=post, title="Comments")
+  
 
 @app.route('/registration', methods=['POST', 'GET'])
 def registration():
