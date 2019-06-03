@@ -60,6 +60,17 @@
   padding-left: 0px;
 }
 
+.commentsbackground {
+  border: 12px solid black;
+  background-color: gray;
+  border-radius: 7px;
+  right: 20%;
+  width: 700px;
+  padding-bottom: 20px;
+  height: auto;
+  padding-left: 0px;
+}
+
 #postnoimage {
   border: 12px solid black;
   background-color: gray;
@@ -198,4 +209,24 @@ ul#menu li {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.commentpostbox {
+  height: 175px;
+  width: 650px;
+  padding-left: 15px;
+  border: 10px solid lightgray;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.commentbox {
+  height: 100px;
+  width: 650px;
+  padding-left: 15px;
+  border: 10px solid lightgray;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: white;
 }
