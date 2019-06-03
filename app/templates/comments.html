@@ -1,0 +1,6 @@
+{% extends "layout.html" %}
+{% block content %}
+  {% for comment in comments %}
+    <p> {{comment.body}}</p>
+  {% endfor %}
+{% endblock content %}
