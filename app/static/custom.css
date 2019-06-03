@@ -87,6 +87,14 @@
   border: 8px solid darkgray;
   margin-left: 12px;
   margin-top: 0px;
+  background-color: black;
+}
+
+.commentspostimage {
+  width: auto;
+  height: 175px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .postidnumber {
@@ -122,6 +130,11 @@
   margin-left: 40px;
 }
 
+.smtab {
+  display: inline-block;
+  margin-left: 20px;
+}
+
 .poststars {
   color: yellow;
   font-size: 30px;
@@ -149,11 +162,23 @@ ul#menu li {
 
 .postlikes {
   font-size:30px;
-  margin-left: 50px;
+  margin-left: 5px;
+}
+
+#likebutton {
+  margin-left: 20px;
+  margin-top: 0px;
+  font-size: 20px;
+}
+
+#flagbutton {
+  margin-left: 25px;
+  margin-top: 0px;
+  font-size: 20px;
 }
 
 #commentsbutton {
-  margin-left: 75px;
+  margin-left: 50px;
   margin-top: 2px;
 }
 
