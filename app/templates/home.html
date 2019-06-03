@@ -31,8 +31,10 @@
             <ul id="menu">
               <li style="float:left"><h1 class="poststars">&#9734 &#9734 &#9733 &#9733 &#9733</h1></li>
               <li style="float:left"><button id="ratebutton" type='button' class='btn btn-warning btn-sm'>Rate</button></li>
+              <li style="float:left"><button id="likebutton" type="button" class="btn btn-link btn-sm" title="Like Post">&#128077;&#127995</button></li> <!--to make emoji yellow get rid of the ;&#127995 -->
               <li style="float:left"><h1 class="postlikes">Likes: {{post.likes}}</h1></li>
-              <li style="float:left"><button id="commentsbutton" type='button' class='btn btn-primary btn-sm'>Comments</button></li>
+              <li style="float:left"><button id="commentsbutton" type='button' class='btn btn-primary btn-sm' data-toggle="modal" data-target="#commentsModal">Comments</button></li>
+              <li style="float:left"><button id="flagbutton" type="button" class="btn btn-link btn-sm" title="Report Post" data-toggle="modal" data-target="#reportModal">&#128681</button></li>
             </ul>
           </div>
         </div>
@@ -58,4 +60,68 @@
     {% endif %}
     <br>
   {% endfor %}
+  <div class="modal" id="reportModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Report Post:</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+       <div class="modal-body">
+          <h5>Please Select the Categories That Apply:</h5>
+          <div class="checkbox">
+            <label><input type="checkbox" value=""><span class="smtab">Racist or Sexist Content</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value=""><span class="smtab">Bullying / Cyber Bullying</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value=""><span class="smtab">Sexual or Explicit Content</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value=""><span class="smtab">Other: <input type="text" class="form-controll" style="border-radius: 5px; width: 300px; vertical-align: top" placeholder="Please write your description here"></label>
+          </div>
+        </div>
+        <div class="modal-footer">
+         <button type="button" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="commentsModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Comments</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div>
+              <p>Comment: </p>
+              <hr>
+            </div>
+        </div>
+        <div class="modal-footer">
+         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addcommentModal">Add Comment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="addcommentModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Add a Comment</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h5>Comment Body:</h5>
+          <input type="text" style="width:400px">
+        </div>
+        <div class="modal-footer">
+         <button type="button" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}
