@@ -4,7 +4,7 @@ from app.forms import RegistrationForm, LoginForm, PostForm, CommentForm
 from app.models import User, Post, Comments
 from flask_login import current_user, login_user, login_required, logout_user
 import os
-#import secrets
+import secrets
 from PIL import Image
 from datetime import datetime
 
@@ -16,15 +16,18 @@ def home():
     form = CommentForm()
     return render_template('home.html', title='Ryan > Brennan', post=post, form=form)
 
-@app.route('/home/<int:post_id>/add_comments', methods=['GET', 'POST'])
+@app.route('/home/<int:post_id>', methods=['POST', 'GET'])
 def comment(post_id):
-  form = CommentForm()
-  post = Post.query.filter_by(id=post_id)
-  if form.validate_on_submit():
-    comment = Comments(body=form.body.data, post_id=post_id)
-    db.session.add(comment)
-    db.session.commit()
-  return render_template("comments.html", form=form, post=post, title="Comments")
+    form = CommentForm()
+    post = Post.query.filter_by(id=post_id).first()
+    comments = Comments.query.filter_by(post_id=post_id)
+    if form.validate_on_submit():
+      comment = Comments(body=form.body.data, post_id=post_id)
+      db.session.add(comment)
+      db.session.commit()
+      flash("Comment Posted")
+      return redirect(url_for('comment', post_id=post_id))
+    return render_template("comments.html", form=form, post=post,comments=comments, title="Comments")
   
 
 @app.route('/registration', methods=['POST', 'GET'])
