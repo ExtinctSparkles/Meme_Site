@@ -51,7 +51,7 @@
                         <h3>Posts: 100</h3>
                     </li>
                      <li class='nav-item' style="border-top: 0px">
-                        <center><button type='button' class='btn btn-primary'>View Profile</button></center>
+                        <center><button type='button' class='btn btn-primary' onclick="window.location.href = '{{url_for('view_profile', user=current_user.username)}}'">View Profile</button></center>
                     </li>
                     <li class="nav-item">
                         <center><button type='button' class='btn btn-success btn-md' onclick="window.location.href = '{{url_for('create_post')}}'">Create Post</button></center>

@@ -68,7 +68,8 @@
   width: 700px;
   padding-bottom: 20px;
   height: auto;
-  padding-left: 0px;
+  padding-left: 12px;
+  margin-left: 120px;
 }
 
 #postnoimage {
@@ -80,6 +81,7 @@
   height: 200px;
   padding-bottom: 5px;
   padding-left: 0px;
+
 }
 
 .rulebox {

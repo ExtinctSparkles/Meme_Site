@@ -10,11 +10,11 @@ from datetime import datetime
 
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home', methods=['GET', 'POST'])
 def home():
     post = Post.query.all()
-    form = CommentForm()
-    return render_template('home.html', title='Ryan > Brennan', post=post, form=form)
+    return render_template('home.html', title='Ryan > Brennan', post=post)
+
 
 @app.route('/home/<int:post_id>', methods=['POST', 'GET'])
 def comment(post_id):
@@ -27,7 +27,7 @@ def comment(post_id):
       db.session.commit()
       flash("Comment Posted")
       return redirect(url_for('comment', post_id=post_id))
-    return render_template("comments.html", form=form, post=post,comments=comments, title="Comments")
+    return render_template("comments.html", form=form, post=post, comments=comments, title="Comments")
   
 
 @app.route('/registration', methods=['POST', 'GET'])
@@ -98,3 +98,19 @@ def create_post():
         flash('Post created')
         return redirect(url_for('home'))
     return render_template('post.html', title='Post', form=form)
+
+
+@app.route('/view_profile/<string:user>', methods=['POST', 'GET'])
+def view_profile(user):
+    user = User.query.filter_by(username=user).first()
+    post = Post.query.filter_by(user_id=user.id)
+    return render_template('profile.html', title=user.username, posts=post)
+
+@app.route('/home/<int:post_id>/like')
+def likes(post_id):
+    post = Post.query.filter_by(id=post_id).first()
+    likes = post.likes
+    likes += 1
+    post.likes = likes
+    db.session.commit()
+    return redirect(url_for('home'))

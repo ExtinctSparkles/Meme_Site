@@ -31,7 +31,7 @@
             <ul id="menu">
               <li style="float:left"><h1 class="poststars">&#9734 &#9734 &#9733 &#9733 &#9733</h1></li>
               <li style="float:left"><button id="ratebutton" type='button' class='btn btn-warning btn-sm'>Rate</button></li>
-              <li style="float:left"><button id="likebutton" type="button" class="btn btn-link btn-sm" title="Like Post">&#128077;&#127995</button></li> <!--to make emoji yellow get rid of the ;&#127995 -->
+              <li style="float:left"><button id="likebutton" type="button" class="btn btn-link btn-sm" title="Like Post"  onclick="window.location.href = '{{url_for('likes', post_id=post.id)}}'">&#128077;&#127995</button></li> <!--to make emoji yellow get rid of the ;&#127995 -->
               <li style="float:left"><h1 class="postlikes">Likes: {{post.likes}}</h1></li>
               <li style="float:left"><button id="commentsbutton" type='button' class='btn btn-primary btn-sm' data-toggle="modal" onclick="window.location.href = '{{url_for('comment',post_id=post.id)}}'" data-target="#commentModal">Comments</button></li>
               <li style="float:left"><button id="flagbutton" type="button" class="btn btn-link btn-sm" title="Report Post" data-toggle="modal" data-target="#reportModal">&#128681</button></li>
