@@ -4,7 +4,7 @@ from app.forms import RegistrationForm, LoginForm, PostForm, CommentForm
 from app.models import User, Post, Comments
 from flask_login import current_user, login_user, login_required, logout_user
 import os
-import secrets
+#import secrets
 from PIL import Image
 from datetime import datetime
 
@@ -115,3 +115,7 @@ def likes(post_id):
     post.likes = likes
     db.session.commit()
     return redirect(url_for('home'))
+
+@app.route('/gotohome')
+def gohome():
+  return redirect(url_for('home'))

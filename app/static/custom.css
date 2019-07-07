@@ -69,7 +69,7 @@
   padding-bottom: 20px;
   height: auto;
   padding-left: 12px;
-  margin-left: 120px;
+  margin-left: 0px;
 }
 
 #postnoimage {
@@ -191,7 +191,7 @@ ul#menu li {
 }
 
 #commentsbutton {
-  margin-left: 50px;
+  margin-left: 20px;
   margin-top: 2px;
 }
 
@@ -231,4 +231,114 @@ ul#menu li {
   border-radius: 5px;
   margin-top: 10px;
   background-color: white;
+}
+
+.profilebox {
+  width: 700px;
+  height: 450px;
+  border: 13px solid black;
+  background-color: gray;
+  border-radius: 7px;
+  margin-top: 25%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#dispinblk {
+  margin-right: 0px;
+  display: inline-block;
+}
+
+#fltright {
+  float: right;
+}
+
+.searchusrbox {
+  width: 185px;
+  height: 45px;
+  border: 1px solid rgba(255, 0, 0, 255);
+  margin-right: 0px;
+  padding-right: 7px;
+}
+
+.imageandnamebox {
+  width: 170px;
+  height: 200px;
+  border-right: 10px solid black;
+  border-bottom: 10px solid black;
+  border-top: 1px solid rgba(255, 0, 0, 255);
+  margin-top: 0px;
+}
+
+.profilepagepic {
+  width: 140px;
+  height: 140px;
+  border: 7px solid black;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.ppusrnm {
+  width: 140px;
+  height: 40px;
+  border: 1px solid rgba(255, 0, 0, 255);
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  padding-top: 5px;
+  color: white;
+}
+
+.editnbackbtnbox {
+  width: 170px;
+  height: 110px;
+  border-right: 10px solid black;
+  border-bottom: 1px solid rgba(255, 0, 0, 255);
+  border-top: 1px solid rgba(255, 0, 0, 255);
+}
+
+.profilebottombox {
+  width: 100%;
+  height: auto;
+  border-top: 10px solid black;
+  margin-left: 0px;
+}
+
+.profilepagebottomleftinnerbox {
+  width: 50%;
+  height: 105px;
+  border: 1px solid rgba(255, 0, 0, 255);
+  border-right: 10px solid black;
+  margin: 0px;
+}
+
+.pflestatsbox {
+  border: 1px solid red;
+  float: right;
+  width:75%;
+  height: 74%
+}
+
+.folsingbox {
+  border: 1px solid red;
+  width: 50%;
+  height: 105px
+}
+
+.pflstatsbox {
+  border: 1px solid red;
+  border-right: 10px solid black;
+  float: left;
+  height: 310px;
+  width: 50%
+}
+
+.pflboxnexttostats {
+  border: 1px solid red;
+  float: right;
+  width: 50%;
+  height: 310px
 }

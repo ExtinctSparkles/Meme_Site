@@ -2,9 +2,11 @@
 {% block content %}
   <div id="postwimage" class="container">
       <h1 class="postidnumber">Post:{{post.id}} </h1>
+      {% if post.image %}
       <div class="postimagebox">
-        <img class="postimage" src="static/post_pics/{{post.image}}" alt="If you can read this you might be thinking why didnt this image display and im here to tell you it sounds like a you problem but if you want to do somthing about it then report the issue and we might take a look at it - from: RyanL">
+        <img class="postimage" src="static/post_pics/{{post.image}}" alt="If you can read this you might be thinking why didnt this image display and im here to tell you it sounds like a you problem but if you want to do somthing about it then report the issue and we might take a look at it - from: LILBOI">
       </div>
+      {% endif %}
       <div class="postbody">
         <p><strong>Body: {{post.body}}</strong></p>
       </div>
