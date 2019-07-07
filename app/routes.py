@@ -106,6 +106,7 @@ def view_profile(user):
     post = Post.query.filter_by(user_id=user.id)
     return render_template('profile.html', title=user.username, posts=post)
 
+
 @app.route('/home/<int:post_id>/like')
 def likes(post_id):
     post = Post.query.filter_by(id=post_id).first()
