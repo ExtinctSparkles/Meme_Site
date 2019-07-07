@@ -23,7 +23,7 @@
         </div>
         <div class="postinteractions">
           {% if post.author.username %}
-            <h1 id="usrnameanddateofpost">User: {{post.author.username}} <span class="tab"> Date: {{post.date_posted.strftime('%m-%d-%y')}}</h1>
+          <h1 id="usrnameanddateofpost"><a href="{{url_for('view_profile', user=post.author.username)}}"> User: {{post.author.username}}</a> <span class="tab"> Date: {{post.date_posted.strftime('%m-%d-%y')}}</h1>
           {% else %}
              <h1 id="usrnameanddateofpost">User: anonymous <span class="tab"> Date: {{post.date_posted.strftime('%m-%d-%y')}}</h1>
           {% endif %}

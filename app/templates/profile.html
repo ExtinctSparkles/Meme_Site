@@ -4,7 +4,7 @@
     <div class="pflestatsbox">
       <div class="pflstatsbox">
         <center><h1>- Stats -</h1></center>
-        <h2>Likes: N/A</h2>
+        <h2>Likes: {{likes}}</h2>
         <h2>Stars: N/A</h2>
         <h2>Gold: N/A</h2>
         <h2 style="font-size: 30px">Comments: N/A</h2>
@@ -15,10 +15,10 @@
     </div>
     <div class="imageandnamebox">
       <div class="profilepagepic">
-        <img src="static/post_pics/default_profile_pic.png" alt="if you can read this you might want to tell a mod" style="float: left; width: 100%; height: 100%; object-fit: cover;">
+        <img src="/static/post_pics/{{user.image}}" alt="if you can read this you might want to tell a mod" style="float: left; width: 100%; height: 100%; object-fit: cover;">
       </div>
       <div class="ppusrnm">
-        <h5>{{current_user.username}}</h5>
+        <h5>{{name}}</h5>
       </div>
     </div>
     <div class="editnbackbtnbox">

@@ -4,7 +4,7 @@ from app.forms import RegistrationForm, LoginForm, PostForm, CommentForm
 from app.models import User, Post, Comments
 from flask_login import current_user, login_user, login_required, logout_user
 import os
-#import secrets
+import secrets
 from PIL import Image
 from datetime import datetime
 
@@ -102,9 +102,13 @@ def create_post():
 
 @app.route('/view_profile/<string:user>', methods=['POST', 'GET'])
 def view_profile(user):
-    user = User.query.filter_by(username=user).first()
-    post = Post.query.filter_by(user_id=user.id)
-    return render_template('profile.html', title=user.username, posts=post)
+    likes = 0
+    user = User.query.filter_by(username=user).first_or_404()
+    if user.post:
+        post = Post.query.filter_by(user_id=user.id)
+    for like in post:
+        likes += like.likes
+    return render_template('profile.html', title=user.username, posts=post, user=user, likes=likes, name=user.username)
 
 
 @app.route('/home/<int:post_id>/like')
@@ -119,3 +123,5 @@ def likes(post_id):
 @app.route('/gotohome')
 def gohome():
   return redirect(url_for('home'))
+
+

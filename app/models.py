@@ -11,8 +11,10 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False, unique=True)
     password = db.Column(db.String(20), nullable=False)
-    image = db.Column(db.String(120), default='test_pic.jpg')
+    image = db.Column(db.String(120), default='default_profile_pic.png')
     post = db.relationship('Post', backref='author', lazy=True)
+    followers = db.relationship('Followers', lazy=True)
+    following = db.relationship('Following', lazy=True)
 
     def __repr__(self):
         return "User({}, {}, {})".format(self.id, self.username, self.image)
@@ -39,3 +41,19 @@ class Comments(db.Model):
     def __repr__(self):
         return "Post({}, {})".format(self.body, self.post_id)
 
+
+class Followers(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    follower = db.Column(db.String, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return "User({}, {})".format(self.body, self.post_id)
+
+class Following(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.String, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return "User({}, {})".format(self.body, self.post_id)
