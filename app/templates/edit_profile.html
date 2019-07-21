@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="text-center">
+      <h1>Edit Profile</h1>
+         <form method="POST", action="">
+             {{form.hidden_tag()}}
+           <fieldset class="form-group">
+                <div3 class="form-group">
+                 {{form.image.label}}</br>
+                 {{form.image}}</br>
+                   <div class="invalid-feedback">
+                       {% for error in form.image.errors %}
+                            <span>{{error}}</span>
+                        {% endfor %}
+                   </div>
+               </div3>
+               <div2 class="form-group">
+                 {{form.username.label}}</br>
+                 {{form.username}}</br>
+                 {% for error in form.username.errors %}
+                  <span>{{error}}</span>
+                {% endfor %}
+               </div2>
+               <div3 class="form-group">
+                 {{form.bio.label}}</br>
+                 {{form.bio}}</br>
+                   <div class="invalid-feedback">
+                       {% for error in form.bio.errors %}
+                            <span>{{error}}</span>
+                        {% endfor %}
+                   </div>
+               </div3>
+           </fieldset>
+             <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+         </form>
+    </div>
+{% endblock content %}

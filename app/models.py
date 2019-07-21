@@ -12,6 +12,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(20), nullable=False, unique=True)
     password = db.Column(db.String(20), nullable=False)
     image = db.Column(db.String(120), default='default_profile_pic.png')
+    bio = db.Column(db.String(120))
     post = db.relationship('Post', backref='author', lazy=True)
     followers = db.relationship('Followers', lazy=True)
     following = db.relationship('Following', lazy=True)

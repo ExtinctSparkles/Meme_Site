@@ -1,6 +1,6 @@
 from app import app, db, bcrypt
 from flask import render_template, url_for, flash, redirect, request
-from app.forms import RegistrationForm, LoginForm, PostForm, CommentForm
+from app.forms import RegistrationForm, LoginForm, PostForm, CommentForm, EditProfileForm
 from app.models import User, Post, Comments
 from flask_login import current_user, login_user, login_required, logout_user
 import os
@@ -109,6 +109,21 @@ def view_profile(user):
     for like in post:
         likes += like.likes
     return render_template('profile.html', title=user.username, posts=post, user=user, likes=likes, name=user.username)
+
+@app.route('/view_profile/<string:user>/edit_profile', methods=['GET', 'POST'])
+def edit_profile(user):
+    form = EditProfileForm()
+    if form.validate_on_submit():
+        if form.image.data:
+            picture_file = save_picture(form.image.data)
+            current_user.image = picture_file
+        current_user.username = form.username.data
+        current_user.bio = form.bio.data
+        db.session.commit()
+        return redirect(url_for("view_profile", user=current_user.username))
+    return render_template('edit_profile.html', title="edit_profile", form=form)
+
+
 
 
 @app.route('/home/<int:post_id>/like')
