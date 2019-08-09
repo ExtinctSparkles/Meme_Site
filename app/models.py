@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
     following = db.relationship('Following', lazy=True)
 
     def __repr__(self):
-        return "User({}, {}, {})".format(self.id, self.username, self.image)
+        return "User({}, {}, {})".format(self.id, self.username, self.image, self.followers, self.following)
 
 
 class Post(db.Model):
@@ -49,7 +49,7 @@ class Followers(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
-        return "User({}, {})".format(self.body, self.post_id)
+        return "User({}, {})".format(self.follower, self.user_id)
 
 class Following(db.Model):
     id = db.Column(db.Integer, primary_key=True)

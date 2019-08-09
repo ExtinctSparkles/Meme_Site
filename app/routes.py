@@ -1,7 +1,7 @@
 from app import app, db, bcrypt
 from flask import render_template, url_for, flash, redirect, request
 from app.forms import RegistrationForm, LoginForm, PostForm, CommentForm, EditProfileForm
-from app.models import User, Post, Comments
+from app.models import User, Post, Comments, Followers, Following
 from flask_login import current_user, login_user, login_required, logout_user
 import os
 import secrets
@@ -104,11 +104,19 @@ def create_post():
 def view_profile(user):
     likes = 0
     user = User.query.filter_by(username=user).first_or_404()
+    followers = len(user.followers)
+    following = len(user.following)
+    if user.username == current_user.username:
+        currentUser = True
+    else:
+        currentUser = False
     if user.post:
         post = Post.query.filter_by(user_id=user.id)
-    for like in post:
-        likes += like.likes
-    return render_template('profile.html', title=user.username, posts=post, user=user, likes=likes, name=user.username)
+        for like in post:
+            likes += like.likes
+        return render_template('profile.html', title=user.username, posts=post, user=user, likes=likes,name=user.username, followers=followers, following=following)
+    else:
+        return render_template('profile.html', title=user.username, user=user, likes=likes, name=user.username, currentUser=currentUser, followers=followers, following=following)
 
 @app.route('/view_profile/<string:user>/edit_profile', methods=['GET', 'POST'])
 def edit_profile(user):
@@ -117,8 +125,10 @@ def edit_profile(user):
         if form.image.data:
             picture_file = save_picture(form.image.data)
             current_user.image = picture_file
-        current_user.username = form.username.data
-        current_user.bio = form.bio.data
+        if form.username.data:
+            current_user.username = form.username.data
+        if form.bio.data:
+            current_user.bio = form.bio.data
         db.session.commit()
         return redirect(url_for("view_profile", user=current_user.username))
     return render_template('edit_profile.html', title="edit_profile", form=form)
@@ -138,5 +148,16 @@ def likes(post_id):
 @app.route('/gotohome')
 def gohome():
   return redirect(url_for('home'))
+
+@app.route('/view_profile/<string:user>/follow', methods=['GET', 'POST'])
+def follow(user):
+    followed_user = User.query.filter_by(username=user).first()
+    follower = Followers(follower=current_user.username, user_id=followed_user.id)
+    following = Following(user=user, user_id=current_user.id)
+    db.session.add(following)
+    db.session.add(follower)
+    db.session.commit()
+    return redirect(url_for('view_profile', user=user))
+
 
 

@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
+{% if currentUser %}
   <div class="profilebox">
     <div class="pflestatsbox">
       <div class="pflstatsbox">
@@ -10,7 +11,8 @@
         <h2 style="font-size: 30px">Comments: N/A</h2>
       </div>
       <div class="pflboxnexttostats">
-        <h1 style="color: blue">This is free real estate my lord the blue stabs ye eyes</h1>
+        <h1 style="color: blue">Bio: </h1>
+        <h2 style="color: blue">{{user.bio}}</h2>
       </div>
     </div>
     <div class="imageandnamebox">
@@ -36,9 +38,59 @@
       </div>
       <div id="fltright" class="folsingbox">
         <h5>Followers/ Following:</h5>
-        <button id="" type="button" class="btn btn-primary" title="followersbtn" >Followers: N/A</button>
-        <button id="" type="button" class="btn btn-primary" title="followingbtn" >Following: N/A</button>
+        <button id="" type="button" class="btn btn-primary" title="followersbtn" >Followers: {{followers}}</button>
+        <button id="" type="button" class="btn btn-primary" title="followingbtn" >Following: {{following}}</button>
       </div>
     </div>
   </div>
+{% else %}
+  <div class="profilebox">
+    <div class="pflestatsbox">
+      <div class="pflstatsbox">
+        <center><h1>- Stats -</h1></center>
+        <h2>Likes: {{likes}}</h2>
+        <h2>Stars: N/A</h2>
+        <h2>Gold: N/A</h2>
+        <h2 style="font-size: 30px">Comments: N/A</h2>
+      </div>
+      <div class="pflboxnexttostats">
+        <h1 style="color: blue">Bio: </h1>
+        <h2 style="color: blue">{{user.bio}}</h2>
+      </div>
+    </div>
+    <div class="imageandnamebox">
+      <div class="profilepagepic">
+        <img src="/static/post_pics/{{user.image}}" alt="if you can read this you might want to tell a mod" style="float: left; width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="ppusrnm">
+        <h5>{{name}}</h5>
+      </div>
+    </div>
+    <div class="editnbackbtnbox">
+      {% for i in current_user.following %}
+        {% if i.user == user.username %}
+          <center><button id="" type="button" class="btn btn-primary btn-sm" title="Edit Profile" disabled>Followed</button></center>
+        {% else %}
+          <center><button id="" type="button" class="btn btn-primary btn-sm" title="Edit Profile" onclick="window.location.href = '{{url_for('follow', user=user.username)}}'">Follow</button></center>
+        {% endif %}
+      {% endfor %}
+      <center><button id="" type="button" class="btn btn-primary btn-sm" title="Back To Home Screen" onclick="window.location.href = '{{url_for('gohome')}}'">Back to Home</button></center>
+    </div>
+    <div class="profilebottombox">
+      <div id="dispinblk" class="profilepagebottomleftinnerbox">
+      <h3 id="dispinblk" style="margin-top: 4px">Chat:</h3>
+      <button id="fltright" type="button" class="btn btn-primary btn-sm" style="margin-right: 50px; margin-top: 5px" title="Back To Home Screen" onclick="window.location.href = '{{url_for('gohome')}}'">Veiw Current Chats</button>
+      <div id="dispinblk" class="searchusrbox">
+        <input style="border-color:lightblue;border-width:2px; margin-left: 5px; margin-right: 0px" class="form-control mr-sm-2" type="text" placeholder="Find User" name="searchuser">
+      </div>
+      <button id="fltright" type="submit" class="btn btn-info btn-xs" style="margin-top: 0px; margin-left: 0px; margin-right: 15px">Search</button>
+      </div>
+      <div id="fltright" class="folsingbox">
+        <h5>Followers/ Following:</h5>
+        <button id="" type="button" class="btn btn-primary" title="followersbtn" >Followers: {{followers}}</button>
+        <button id="" type="button" class="btn btn-primary" title="followingbtn" >Following: {{following}}</button>
+      </div>
+    </div>
+  </div>
+{% endif %}
 {% endblock %}

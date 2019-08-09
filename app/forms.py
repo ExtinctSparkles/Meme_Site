@@ -40,7 +40,7 @@ class CommentForm(FlaskForm):
     submit = SubmitField('Post Comment')
 
 class EditProfileForm(FlaskForm):
-    username = StringField('Username', validators=[Length(min=1, max=20)])
+    username = StringField('Username')
     image = FileField('Profile Picture', validators=[FileAllowed(['jpg', 'png', 'gif'])])
     bio = StringField('Bio')
     submit = SubmitField('Save Changes')
