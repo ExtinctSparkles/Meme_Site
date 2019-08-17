@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-{% if currentUser %}
+{% if currentUser.is %}
   <div class="profilebox">
     <div class="pflestatsbox">
       <div class="pflstatsbox">
@@ -38,8 +38,8 @@
       </div>
       <div id="fltright" class="folsingbox">
         <h5>Followers/ Following:</h5>
-        <button id="" type="button" class="btn btn-primary" title="followersbtn" >Followers: {{followers}}</button>
-        <button id="" type="button" class="btn btn-primary" title="followingbtn" >Following: {{following}}</button>
+        <button id="" type="button" class="btn btn-primary" title="followersbtn" onclick="window.location.href = '{{url_for('followers', user=user.username)}}'">Followers: {{followers}}</button>
+        <button id="" type="button" class="btn btn-primary" title="followingbtn"  onclick="window.location.href = '{{url_for('following', user=user.username)}}'">Following: {{following}}</button>
       </div>
     </div>
   </div>
@@ -87,8 +87,8 @@
       </div>
       <div id="fltright" class="folsingbox">
         <h5>Followers/ Following:</h5>
-        <button id="" type="button" class="btn btn-primary" title="followersbtn" >Followers: {{followers}}</button>
-        <button id="" type="button" class="btn btn-primary" title="followingbtn" >Following: {{following}}</button>
+        <button id="" type="button" class="btn btn-primary" title="followersbtn" onclick="window.location.href = '{{url_for('followers', user=user.username)}}'">Followers: {{followers}}</button>
+        <button id="" type="button" class="btn btn-primary" title="followingbtn" onclick="window.location.href = '{{url_for('following', user=user.username)}}'">Following: {{following}}</button>
       </div>
     </div>
   </div>

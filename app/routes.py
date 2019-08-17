@@ -159,5 +159,14 @@ def follow(user):
     db.session.commit()
     return redirect(url_for('view_profile', user=user))
 
+@app.route('/view_profile/<string:user>/following')
+def following(user):
+    u = User.query.filter_by(username=user).first()
+    following = u.following
+    return render_template('following.html', following=following)
 
-
+@app.route('/view_profile/<string:user>/followers')
+def followers(user):
+    u = User.query.filter_by(username=user).first()
+    followers = u.followers
+    return render_template('followers.html', followers=followers)

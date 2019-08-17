@@ -1,0 +1,8 @@
+{% extends "layout.html"%}
+{% block content %}
+    <div class="text-center">
+      {% for u in following %}
+        <h1>{{u.user}}</h1>
+        {% endfor %}
+    </div>
+{% endblock content %}
