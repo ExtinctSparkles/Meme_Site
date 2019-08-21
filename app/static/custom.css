@@ -1,7 +1,21 @@
+:root {
+  --box-bg-color: grey;
+  --box-border-color: darkgrey;  
+  --post-border-color: black;
+  --post-bg-color: grey;
+  --post-img-border-color: darkgrey;
+  --post-text-color: black;
+  --post-publisher-color:;
+  --bg-color: white;
+}
+
+
+
+
 .sidebarnav{
     width: 200px;
     height: 550px;
-    border: 15px solid darkgray;
+    border: 15px solid var(--box-border-color);
     padding: 5px;
     position: fixed;
     left: 0%;
@@ -10,10 +24,11 @@
     background-color: white;
     top: 20%;
 }
-.sidebarnav_2{
+
+.sidebarnav_2 {
     width: 200px;
     height: 550px;
-    border: 15px solid darkgray;
+    border: 15px solid var(--box-border-color);
     padding: 0px;
     border-bottom-left-radius: 7px;
     border-top-left-radius: 7px;
@@ -23,22 +38,29 @@
     right: 0%
 }
 
+.nav-item {
+  align-self: center;
+}
+
 .navbutton {
-  margin-right: 120px; /*was 55px*/
+  margin-right: 5px;
   margin-top: 8px;
 }
 
 .profilepic {
-    width: 130px; height: 130px; border: 5px solid black; margin-left: 15px; border-radius: 5px;
+    width: 130px;
+    height: 130px;
+    border: 5px solid black;
+    margin-left: 15px;
+    border-radius: 5px;
 }
 
 .btn {
-    margin-left: 5px; 
     margin-top: 10px;
 }
 
 .navbar-brand {
-    font-size: 30px
+    font-size: 30px;
 }
 
 .home-style {
@@ -136,6 +158,7 @@
   text-align: left;
   margin-left: 3px;
   margin-bottom: 0px;
+  color: black;
 }
 
 .tab {
