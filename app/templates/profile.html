@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-{% if currentUser.is %}
+{% if current_user %}
   <div class="profilebox">
     <div class="pflestatsbox">
       <div class="pflstatsbox">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="editnbackbtnbox">
-      <center><button id="" type="button" class="btn btn-primary btn-sm" title="Edit Profile" onclick="window.location.href = '{{url_for('edit_profile', user=current_user.username)}}'">&#9999 Edit Profile</button></center>
+      <center><button type="button" class="btn btn-primary btn-sm" title="Edit Profile" onclick="window.location.href = '{{url_for('edit_profile', user=current_user.username)}}'">&#9999 Edit Profile</button></center>
       <center><button id="" type="button" class="btn btn-primary btn-sm" title="Back To Home Screen" onclick="window.location.href = '{{url_for('gohome')}}'">Back to Home</button></center>
     </div>
     <div class="profilebottombox">
@@ -39,7 +39,7 @@
       <div id="fltright" class="folsingbox">
         <h5>Followers/ Following:</h5>
         <button id="" type="button" class="btn btn-primary" title="followersbtn" onclick="window.location.href = '{{url_for('followers', user=user.username)}}'">Followers: {{followers}}</button>
-        <button id="" type="button" class="btn btn-primary" title="followingbtn"  onclick="window.location.href = '{{url_for('following', user=user.username)}}'">Following: {{following}}</button>
+        <button style="margin-left: 10px" type="button" class="btn btn-primary" title="followingbtn"  onclick="window.location.href = '{{url_for('following', user=user.username)}}'">Following: {{following}}</button>
       </div>
     </div>
   </div>
@@ -88,7 +88,7 @@
       <div id="fltright" class="folsingbox">
         <h5>Followers/ Following:</h5>
         <button id="" type="button" class="btn btn-primary" title="followersbtn" onclick="window.location.href = '{{url_for('followers', user=user.username)}}'">Followers: {{followers}}</button>
-        <button id="" type="button" class="btn btn-primary" title="followingbtn" onclick="window.location.href = '{{url_for('following', user=user.username)}}'">Following: {{following}}</button>
+        <button style="margin-left: 10px" type="button" class="btn btn-primary" title="followingbtn" onclick="window.location.href = '{{url_for('following', user=user.username)}}'">Following: {{following}}</button>
       </div>
     </div>
   </div>
