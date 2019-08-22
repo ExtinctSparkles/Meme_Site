@@ -67,7 +67,7 @@
   position: fixed;
   height: 150px;
   width: 100%;
-  border: 10px solid darkgray;
+  border: 10px solid var(--box-border-color);
   right: 0%;
   background-color: lightblue
 }
@@ -119,7 +119,7 @@
   width: 650px;
   height: 350px;
   border-radius: 5px;
-  border: 8px solid darkgray;
+  border: 8px solid var(--post-img-border-color);
   margin-left: 12px;
   margin-top: 0px;
   background-color: black;
@@ -228,9 +228,8 @@ ul#menu li {
 }
 
 .postimage {
-  
   height: 100%;
-  max-width: auto;
+  width: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -364,4 +363,22 @@ ul#menu li {
   float: right;
   width: 50%;
   height: 310px
+}
+
+.edittitle {
+  border-bottom: 10px solid black;
+  text-align: center;
+  padding-top: 5px;
+  color: white;
+}
+
+.editborders {
+  border-bottom: 10px solid black;
+}
+
+
+
+
+.buildinglayouts {
+  border: 1px solid red;
 }
