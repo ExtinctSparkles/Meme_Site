@@ -63,6 +63,7 @@ def login():
 
 
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('home'))
@@ -106,6 +107,7 @@ def view_profile(user):
     user = User.query.filter_by(username=user).first_or_404()
     followers = len(user.followers)
     following = len(user.following)
+
     if user.username == current_user.username:
         currentUser = True
     else:
@@ -114,22 +116,21 @@ def view_profile(user):
         post = Post.query.filter_by(user_id=user.id)
         for like in post:
             likes += like.likes
-        return render_template('profile.html', title=user.username, posts=post, user=user, likes=likes,name=user.username, followers=followers, following=following)
+        return render_template('profile.html', title=user.username, posts=post, user=user, likes=likes,name=user.username, followers=followers, following=following, currentUser=currentUser)
     else:
         return render_template('profile.html', title=user.username, user=user, likes=likes, name=user.username, currentUser=currentUser, followers=followers, following=following)
 
+
 @app.route('/view_profile/<string:user>/edit_profile', methods=['GET', 'POST'])
+@login_required
 def edit_profile(user):
     form = EditProfileForm()
     if form.validate_on_submit():
         if form.image.data:
             picture_file = save_picture(form.image.data)
             current_user.image = picture_file
-        if form.username.data:
-            current_user.username = form.username.data
-        if form.bio.data:
-            current_user.bio = form.bio.data
         db.session.commit()
+        flash("Changes saved")
         return redirect(url_for("view_profile", user=current_user.username))
     return render_template('edit_profile.html', title="edit_profile", form=form)
 
@@ -137,6 +138,7 @@ def edit_profile(user):
 
 
 @app.route('/home/<int:post_id>/like')
+@login_required
 def likes(post_id):
     post = Post.query.filter_by(id=post_id).first()
     likes = post.likes
@@ -150,6 +152,7 @@ def gohome():
   return redirect(url_for('home'))
 
 @app.route('/view_profile/<string:user>/follow', methods=['GET', 'POST'])
+@login_required
 def follow(user):
     followed_user = User.query.filter_by(username=user).first()
     follower = Followers(follower=current_user.username, user_id=followed_user.id)
